@@ -1,0 +1,50 @@
+{% extends 'users/userbase.html' %}
+{% block contents %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('table').DataTable({
+        "pageLength": 50
+    });
+});
+</script>
+
+<style>
+/* Center everything in the middle of the screen */
+.center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertical Centering */
+    align-items: center; /* Horizontal Centering */
+    height: 100vh; /* Full viewport height */
+    text-align: center;
+}
+
+/* Heading styling */
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Styling for the dataset display */
+pre {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Adjust width */
+    overflow: auto;
+    font-size: 16px;
+}
+</style>
+
+<div class="center-container">
+    <h2 class="section-title">Dataset View</h2>
+    <pre>{{ data|safe }}</pre>
+</div>
+
+{% endblock %}

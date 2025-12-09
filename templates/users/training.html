@@ -1,0 +1,20 @@
+{%extends 'users/userbase.html'%}
+{%load static%}
+{%block contents%}
+
+<section id="main-content">
+    <div class="content" id="dashboard">
+        <h2>Testing Results</h2>
+
+        <h3>Accuracy: {{ acc }}</h3>
+
+        <h4>Classification Report:</h4>
+        <pre>
+            {{ report }}
+        </pre>
+
+    </div>
+</section>
+
+
+{%endblock%}

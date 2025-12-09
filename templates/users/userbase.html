@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Livestock Disease Prediction</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+        <link href="{% static 'img/favicon.ico' %}" rel="icon">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/owlcarousel/owl.carousel.min.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="navbar navbar-expand-lg bg-dark navbar-dark" style="color:rgb(166, 9, 9);">
+            <div class="container-fluid">
+                <a href="index.html" class="navbar-brand"> <span style="color:rgb(173, 101, 23);">Livestock Disease Prediction</span></a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="{% url 'UserHome' %}" class="nav-item nav-link">Home</a>
+                        <a href="{% url 'DatasetView' %}" class="nav-item nav-link">DatasetView</a>
+                        <a href="{% url 'training' %}" class="nav-item nav-link">training</a>
+                        <a href="{% url 'prediction' %}" class="nav-item nav-link">prediction</a>
+                        <a href="{% url 'index' %}" class="nav-item nav-link">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <br><center><h2 style="color:rgb(129, 17, 17);">Livestock Disease identification Using ML</h2></center></div></br>
+                    </div>
+                    <div class="col-12">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%block contents%}
+
+        {%endblock%}
+<br><br><br><br><br><br><br><br><br>
+    <div class="container copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+        <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+        <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+        <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+        <script src="{% static 'mail/contact.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>

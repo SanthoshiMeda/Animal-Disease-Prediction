@@ -1,0 +1,129 @@
+{% extends 'users/userbase.html' %}
+{% block contents %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+    <title>Livestock  Disease Prediction</title>
+    <link rel="stylesheet" href="{% static 'css/sample.css' %}"/>
+    <style>
+        body {
+            background-color: #f4f4f4; /* Light background for contrast */
+            font-family: Arial, sans-serif; /* Set a clean font */
+        }
+        
+        .form-container {
+            max-width: 500px; /* Limit the width of the form */
+            margin: 50px auto; /* Center the form on the page */
+            padding: 30px; /* Add padding inside the form */
+            background-color: white; /* White background for the form */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        
+        h2 {
+            text-align: center; /* Center the heading */
+            color: #b35107; /* Darker color for the heading */
+            margin-bottom: 20px; /* Space below the heading */
+        }
+        
+        label {
+            display: block; /* Ensure labels take full width */
+            margin: 10px 0 5px; /* Spacing around labels */
+            color: #555; /* Medium gray for labels */
+        }
+        
+        input[type="text"], input[type="number"] {
+            width: 100%; /* Make inputs take full width */
+            padding: 10px; /* Padding inside inputs */
+            margin-bottom: 15px; /* Space below inputs */
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 4px; /* Rounded corners */
+            box-sizing: border-box; /* Include padding and border in element's total width */
+            transition: border-color 0.3s; /* Transition for border color */
+        }
+        
+        input[type="text"]:focus, input[type="number"]:focus {
+            border-color: #1874d6; /* Blue border on focus */
+            outline: none; /* Remove outline */
+        }
+        
+        button {
+            background-color: #1874d6; /* Blue background for button */
+            color: white; /* White text for button */
+            border: none; /* Remove border */
+            border-radius: 4px; /* Rounded corners for button */
+            padding: 10px; /* Padding inside button */
+            cursor: pointer; /* Change cursor on hover */
+            width: 100%; /* Full width button */
+            font-size: 16px; /* Larger font for better readability */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+        
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        
+        /* Error message styling */
+        .error-message {
+            color: red; /* Red color for error messages */
+            margin-top: 10px; /* Space above error messages */
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Livestock Disease Prediction</h2>
+        <h5>Result is <font color="red">{{ output }}</font></h5>  
+        <h5> Symptom1: {{symptom1}} </h5>
+        <h5> Symptom2: {{symptom2}} </h5>
+        <h5> Symptom3: {{symptom3}} </h5>
+        {% if precautions %}
+        
+            <h5 style="color: #1874d6;">Precautions:</h5>
+            <ul>
+                {% for precaution in precautions %}
+                    <li>{{ precaution }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form action="{% url 'prediction' %}" class="control-form" method="post" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <label for="animal_input">Animal:</label>
+            <input type="text" id="animal_input" name="animal_input" required>
+            
+            <label for="age_input">Age:</label>
+            <input type="number" id="age_input" name="age_input" required>
+            
+            <label for="temperature_input">Temperature:</label>
+            <input type="number" id="temperature_input" name="temperature_input" step="0.1" required>
+            
+            <label for="symptom1_input">Symptom 1:</label>
+            <input type="text" id="symptom1_input" name="symptom1_input" required>
+            
+            <label for="symptom2_input">Symptom 2:</label>
+            <input type="text" id="symptom2_input" name="symptom2_input" required>
+            
+            <label for="symptom3_input">Symptom 3:</label>
+            <input type="text" id="symptom3_input" name="symptom3_input" required>
+            
+            <button type="submit">Predict Disease</button>
+        </form>
+    </div>
+    
+    <script>
+        function validateForm() {
+            // Simple validation example
+            const ageInput = document.getElementById('age_input');
+            if (ageInput.value < 0) {
+                alert('Age cannot be negative');
+                return false;
+            }
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livestock Disease Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .navbar-brand {
+          font-size: 2rem; /* Customize the font size */
+      }
+      h1 {
+          font-size: 3rem;
+      }
+      h2 {
+          font-size: 2.5rem;
+      }
+      h3 {
+          font-size: 2rem;
+      }
+  </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Livestock Disease Prediction</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url  'UserLogin' %}">User</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'AdminLogin' %}">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'UserRegister' %}">Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ======= Footer ======= -->
+    
+    {% block contents %}
+    {% endblock %}
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+<footer id="footer" style="background-color: black; position: fixed; bottom: 0; width: 100%; left: 0; right: 0;">
+    <div class="container" style="padding: 10px; color: white; text-align: center;">
+        <div class="copyright">
+            &copy; Copyright <strong><span>DNR</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            Designed by <a href="https://bootstrapmade.com/" style="color: white;">BootstrapMade</a>
+        </div>
+    </div>
+</footer>
+    <!-- End Footer -->
+
+
+</html>

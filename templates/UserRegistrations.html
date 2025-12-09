@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+
+<section class="bg-light" style="background: url('{% static 'assets/img/registration.jpg' %}') no-repeat center center; background-size: cover;">
+    <div class="container py-5">
+        <div class="row text-center py-3">
+            <div class="col-lg-6 m-auto">
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 mb-4"></div>
+            <div class="col-12 col-md-4 mb-4" style="align-content: center;">
+                <div class="card h-100 p-4" style="background: rgba(255, 255, 255, 0.8); border-radius: 10px;">
+                    <form action="{% url 'UserRegisterActions' %}" method="POST" style="width:100%">
+                        <h1 class="h3 text-center" style="font-weight:bold; color:brown;">User Register Form</h1>
+
+                        {% csrf_token %}
+                        <table>
+                            <tr><td></td><td>User Name</td><td>{{ form.name }}</td></tr>
+                            <tr><td></td><td>Login ID</td><td>{{ form.loginid }}</td></tr>
+                            <tr><td></td><td>Password</td><td>{{ form.password }}</td></tr>
+                            <tr><td></td><td>Mobile</td><td>{{ form.mobile }}</td></tr>
+                            <tr><td></td><td>Email</td><td>{{ form.email }}</td></tr>
+                            <tr><td></td><td>Locality</td><td>{{ form.locality }}</td></tr>
+                            <tr><td></td><td>Address</td><td>{{ form.address }}</td></tr>
+                            <tr><td></td><td>City</td><td>{{ form.city }}</td></tr>
+                            <tr><td></td><td>State</td><td>{{ form.state }}</td></tr>
+                            <tr><td></td><td></td><td>{{ form.status }}</td></tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button class="btn btn-block btn-primary text-white py-2 px-5" type="submit">
+                                        Register
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+
+                        {% if messages %}
+                        {% for message in messages %}
+                        <p class="text-danger">{{ message }}</p>
+                        {% endfor %}
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mb-4"></div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

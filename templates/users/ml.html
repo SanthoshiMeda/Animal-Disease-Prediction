@@ -1,0 +1,40 @@
+{%extends 'users/userbase.html'%}
+{%block contents%}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+<script type="text/javascript">(document).ready(function(){('table').DataTable({
+    "pageLength": 50
+});});</script>
+        <div class="section-header">
+            <h2 class="section-title wow fadeInDown">Machine Learning Results</h2>
+            <p class="wow fadeInDown"></p>
+        </div>
+
+        <div class="row" style="margin:10px ;">
+            
+            <!-- <pre>{{data|safe}}</pre> -->
+        <table border="1">
+            <tr>
+                <th>MAE</th>
+                <th>MSE</th>
+                <th>RMSE</th>
+            </tr>
+            <tr>
+                <td>{{ MAE }}</td>
+                <td>{{ MSE }}</td>
+                <td>{{ RMSE }}</td>
+            </tr>
+        </table>
+        
+        <!-- <h2>{{ MAE }}</h2><br>
+            <h2>{{ MSE }}</h2><br>
+            <h2>{{ RMSE }}</h2> -->
+
+
+
+        </div>
+
+
+
+{%endblock%}
